@@ -415,6 +415,10 @@ void b2PolygonShape::ComputeMass(b2MassData* massData, float density) const
 		I += (0.25f * k_inv3 * D) * (intx2 + inty2);
 	}
 
+	// Fix the area value.
+	if (area <= b2_epsilon)
+		area = b2_epsilon + 0.01f;
+
 	// Total mass
 	massData->mass = density * area;
 

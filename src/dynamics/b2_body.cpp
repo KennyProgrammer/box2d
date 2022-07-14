@@ -329,6 +329,11 @@ void b2Body::ResetMassData()
 	{
 		// Center the inertia about the center of mass.
 		m_I -= m_mass * b2Dot(localCenter, localCenter);
+		
+		// Force FIX:
+		if (m_I < 0.0f)
+			m_I = 0.01f;
+		
 		b2Assert(m_I > 0.0f);
 		m_invI = 1.0f / m_I;
 
