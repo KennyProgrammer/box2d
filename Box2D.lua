@@ -12,8 +12,8 @@ project "Box2D"
 	language      "C++"
 	cppdialect    "C++11"
 	staticruntime "on"
-	targetdir     ("%{ForceDir.BinLib}/" .. BuildDir .. "/%{prj.name}/lib")
-	objdir        ("%{ForceDir.BinLib}/" .. BuildDir .. "/%{prj.name}/obj")
+	targetdir     ("%{ForceDir.BinLib}/" .. BuildDir .. "/%{prj.name}/Lib")
+	objdir        ("%{ForceDir.BinLib}/" .. BuildDir .. "/%{prj.name}/Obj")
 
 	files {
 		"src/**.h",
@@ -22,7 +22,8 @@ project "Box2D"
 	}
 
 	includedirs {
-		"include"
+		"include",
+		"src"
 	}
 
 	filter "system:windows"
